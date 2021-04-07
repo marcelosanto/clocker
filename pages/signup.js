@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Formik, useFormik } from 'formik'
 import * as yup from 'yup'
 
@@ -120,6 +121,8 @@ export default function Home() {
           </Button>
         </Box>
       </Box>
+
+      <Link href='/'>Já possui uma conta? Acesse!</Link>
     </Container>
   )
 }

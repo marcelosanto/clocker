@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Formik, useFormik } from 'formik'
 import * as yup from 'yup'
 
@@ -101,6 +102,8 @@ export default function Home() {
           </Button>
         </Box>
       </Box>
+
+      <Link href='/signup'>Ainda não tem uma conta? Cadastre-se</Link>
     </Container>
   )
 }
