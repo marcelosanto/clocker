@@ -14,6 +14,7 @@ import {
   InputLeftAddon,
 } from '@chakra-ui/react'
 
+import firebase from '../config/firebase'
 import { Logo } from '../components/Logo'
 
 const validationSchema = yup.object().shape({
@@ -35,7 +36,9 @@ export default function Home() {
     handleSubmit,
     isSubmitting,
   } = useFormik({
-    onSubmit: (values, form) => {},
+    onSubmit: (values, form) => {
+      console.log(values)
+    },
     validationSchema,
     initialValues: {
       email: '',
@@ -104,7 +107,7 @@ export default function Home() {
             width='100%'
             colorScheme='blue'
             onClick={handleSubmit}
-            isLoading={isSubmitting}
+            isLoading={!isSubmitting}
           >
             Entrar
           </Button>
