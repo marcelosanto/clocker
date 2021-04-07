@@ -23,6 +23,7 @@ const validationSchema = yup.object().shape({
     .email('E-mail inválido')
     .required('Preenchimento obrigatorio'),
   password: yup.string().required('Preenchimento obrigatorio'),
+  username: yup.string().required('Preenchimento obrigatorio'),
 })
 
 export default function Home() {
@@ -48,6 +49,7 @@ export default function Home() {
     validationSchema,
     initialValues: {
       email: '',
+      username: '',
       password: '',
     },
   })
@@ -90,6 +92,23 @@ export default function Home() {
           )}
         </FormControl>
 
+        <FormControl id='username' p={4} isRequired>
+          <InputGroup size='lg'>
+            <InputLeftAddon children='clocker.work/' />
+            <Input
+              type='username'
+              value={values.username}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+          </InputGroup>
+          {touched.username && (
+            <FormHelperText textColor='#e74c3c'>
+              {errors.username}
+            </FormHelperText>
+          )}
+        </FormControl>
+
         <Box p={4}>
           <Button
             width='100%'
@@ -97,7 +116,7 @@ export default function Home() {
             onClick={handleSubmit}
             isLoading={!!isSubmitting}
           >
-            Entrar
+            Criar
           </Button>
         </Box>
       </Box>
